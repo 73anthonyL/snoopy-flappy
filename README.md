@@ -46,7 +46,9 @@ Then open <http://localhost:3000>.
 | `npm run dev` | Start the development server on port 3000 |
 | `npm run build` | Build for production into `dist/` |
 | `npm run preview` | Serve the production build locally |
-| `npm run lint` | Type-check the project with `tsc --noEmit` |
+| `npm run check` | Type-check, lint, and verify formatting |
+| `npm run format` | Reformat all files with Biome |
+| `npm run lint` | Type-check only |
 | `npm run clean` | Remove build output |
 
 ## Tech stack

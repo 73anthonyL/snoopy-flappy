@@ -13,7 +13,9 @@ npm install
 npm run dev      # Vite dev server on http://localhost:3000 (binds 0.0.0.0)
 npm run build    # production build to dist/
 npm run preview  # serve the production build
-npm run lint     # type-check only (tsc --noEmit); there is no ESLint
+npm run check    # type-check (tsc) + Biome lint and format check; run before committing
+npm run format   # rewrite files with Biome's formatter
+npm run lint     # type-check only; kept as-is because AI Studio generated it
 ```
 
 Vite 8 requires Node.js 22.12 or later (or 20.19+); `.nvmrc` pins Node 22.
@@ -68,4 +70,5 @@ Tailwind v4 is loaded through the `@tailwindcss/vite` plugin with no `tailwind.c
 - **Assets.** Reference images with an `import` so Vite bundles them; a literal `/src/...` URL only resolves on the dev server.
 - **`vite.config.ts` HMR block.** The `DISABLE_HMR` handling is for the AI Studio environment and is marked do-not-modify.
 - **Path alias.** `@/` resolves to the repository root, not `src/`.
-- **TypeScript is not strict.** `tsconfig.json` does not enable `strict`, so `npm run lint` will not catch null/implicit-any issues.
+- **Linting uses Biome, not ESLint.** ESLint's TypeScript plugin cannot parse TypeScript 7 projects. Rules and formatter settings are in `biome.json`. Suppress a rule with a `// biome-ignore <rule>: <reason>` comment; the reason is required.
+- **TypeScript is strict.** `tsconfig.json` does not set `strict`, but TypeScript 7 enables it by default.
