@@ -60,6 +60,7 @@ Tailwind v4 is loaded through the `@tailwindcss/vite` plugin with no `tailwind.c
 
 ## Things to know
 
+- **AI Studio compatibility.** The project may be opened in Google AI Studio again, so keep `metadata.json` (AI Studio's app config), `.env.example`, and the template's dependency list intact, even though `@google/genai`, `express`, `dotenv`, `motion`, and `lucide-react` are not imported by anything in `src/`. No `.env` file is needed to run the game.
 - **Assets.** Reference images with an `import` so Vite bundles them; a literal `/src/...` URL only resolves on the dev server.
 - **`vite.config.ts` HMR block.** The `DISABLE_HMR` handling is for the AI Studio environment and is marked do-not-modify.
 - **Path alias.** `@/` resolves to the repository root, not `src/`.
