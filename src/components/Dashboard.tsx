@@ -7,6 +7,8 @@
 import React, { useState } from 'react';
 import { PilotStats, Difficulty, Skin } from '../types';
 import { SKINS, MEDALS, resetPilotStats } from '../utils/storage';
+// Imported rather than referenced by URL string so Vite bundles it into the production build
+import heroImageUrl from '../assets/images/snoopy_flying_ace_hero_1790487274294.jpg';
 
 interface DashboardProps {
   stats: PilotStats;
@@ -56,7 +58,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       <div className="relative rounded-2xl overflow-hidden comic-border-lg bg-stone-900 mb-6 shadow-xl">
         <div className="relative h-44 sm:h-52 w-full overflow-hidden">
           <img
-            src="/src/assets/images/snoopy_flying_ace_hero_1790487274294.jpg"
+            src={heroImageUrl}
             alt="Snoopy Flying Ace soaring above the clouds"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center opacity-85 brightness-95"
