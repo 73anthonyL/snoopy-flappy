@@ -1,6 +1,0 @@
-{
-  "name": "Snoopy's Flying Ace - Flappy Beagle Flight",
-  "description": "Take to the skies as Snoopy the World War I Flying Ace! Dodge kite-eating trees, collect dog biscuits, rescue Woodstock, and battle the Red Baron using your spacebar.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
