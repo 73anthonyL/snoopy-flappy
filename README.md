@@ -2,6 +2,8 @@
 
 A Flappy Bird–style browser game starring Snoopy as the World War I Flying Ace. Pilot the red doghouse through Peanuts-themed obstacles, collect dog biscuits, rescue Woodstock, and dodge the Red Baron.
 
+**[▶ Play it in your browser](https://73anthonyl.github.io/snoopy-flappy/)**
+
 The game runs entirely in the browser. Graphics are drawn procedurally on an HTML canvas and all sound is synthesized with the Web Audio API, so there are no sprite sheets or audio files to load.
 
 ## Features
