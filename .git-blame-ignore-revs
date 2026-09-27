@@ -1,0 +1,6 @@
+# Commits listed here are skipped by git blame, so mechanical reformatting
+# does not hide who last changed a line for a real reason.
+# Enable locally with: git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# style: format the codebase with Biome
+932c64ed1eb445846f979cc1942b142ee4dd47c4
