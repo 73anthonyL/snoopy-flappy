@@ -4,8 +4,16 @@
  * parallax comic backgrounds, Peanuts lore obstacles, and collectibles.
  */
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { GameState, Difficulty, Obstacle, FlyingWoodstockHazard, Particle, Skin } from '../types';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type {
+  Difficulty,
+  FlyingWoodstockHazard,
+  GameState,
+  Obstacle,
+  Particle,
+  Skin,
+} from '../types';
 import { sound } from '../utils/audio';
 
 interface GameCanvasProps {
@@ -348,7 +356,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
             const spawnY = Math.floor(110 + Math.random() * (groundY - 240));
             const isKiteHazard = Math.random() < 0.35;
             s.flyingWoodstocks.push({
-              id: 'fw_' + Date.now() + Math.random(),
+              id: `fw_${Date.now()}${Math.random()}`,
               x: width + 40,
               y: spawnY,
               baseY: spawnY,
@@ -465,7 +473,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
       ctx.fillRect(0, 0, width, height);
 
       // B. Distant clouds (Peanuts hand-drawn cloud style)
-      drawComicClouds(ctx, width, groundY, s.cloudOffset);
+      drawComicClouds(ctx, width, s.cloudOffset);
 
       // C. Distant suburban hills & Charlie Brown house silhouette
       drawSuburbanHills(ctx, width, groundY, s.hillOffset);
@@ -588,6 +596,8 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
   }, []);
 
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: the wrapper only widens the click target; the accessible control is the button below
+    // biome-ignore lint/a11y/useKeyWithClickEvents: the keyboard equivalent (Space) is handled by the window listener above
     <div
       ref={containerRef}
       className="relative flex flex-col items-center justify-center select-none"
@@ -693,12 +703,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
 /*                           CANVAS DRAWING UTILITIES                         */
 /* -------------------------------------------------------------------------- */
 
-function drawComicClouds(
-  ctx: CanvasRenderingContext2D,
-  width: number,
-  groundY: number,
-  offset: number,
-) {
+function drawComicClouds(ctx: CanvasRenderingContext2D, width: number, offset: number) {
   ctx.save();
   ctx.fillStyle = 'rgba(255, 255, 255, 0.88)';
   ctx.strokeStyle = '#1C1917';

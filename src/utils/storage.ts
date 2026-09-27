@@ -1,7 +1,7 @@
 /**
  * Local Storage and Pilot Stats management for Snoopy's Flying Ace
  */
-import { PilotStats, FlightRecord, Skin, Medal } from '../types';
+import type { FlightRecord, Medal, PilotStats, Skin } from '../types';
 
 const STORAGE_KEY = 'snoopy_flying_ace_stats_v1';
 
@@ -180,7 +180,7 @@ export function saveFlightResult(
   });
 
   const flightRecord: FlightRecord = {
-    id: 'fl_' + Date.now(),
+    id: `fl_${Date.now()}`,
     date: new Date().toLocaleDateString(undefined, {
       month: 'short',
       day: 'numeric',

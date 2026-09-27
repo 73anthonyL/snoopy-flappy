@@ -3,15 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { GameState, Difficulty, Skin, PilotStats } from './types';
-import { loadPilotStats, saveFlightResult, SKINS } from './utils/storage';
-import { sound } from './utils/audio';
-import { Header } from './components/Header';
-import { GameCanvas } from './components/GameCanvas';
+import { useCallback, useEffect, useState } from 'react';
 import { Dashboard } from './components/Dashboard';
 import { EndScreen } from './components/EndScreen';
+import { GameCanvas } from './components/GameCanvas';
+import { Header } from './components/Header';
 import { HowToPlayModal } from './components/HowToPlayModal';
+import type { Difficulty, GameState, PilotStats, Skin } from './types';
+import { sound } from './utils/audio';
+import { loadPilotStats, SKINS, saveFlightResult } from './utils/storage';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<'GAME' | 'DASHBOARD'>('GAME');

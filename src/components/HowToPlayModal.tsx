@@ -2,7 +2,7 @@
  * Flight Manual & Comic Rules Modal
  */
 
-import React from 'react';
+import type React from 'react';
 
 interface HowToPlayModalProps {
   isOpen: boolean;

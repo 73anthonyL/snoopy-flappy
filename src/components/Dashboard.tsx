@@ -4,11 +4,12 @@
  * and historical sortie log.
  */
 
-import React, { useState } from 'react';
-import { PilotStats, Difficulty, Skin } from '../types';
-import { SKINS, MEDALS, resetPilotStats } from '../utils/storage';
+import type React from 'react';
+import { useState } from 'react';
 // Imported rather than referenced by URL string so Vite bundles it into the production build
 import heroImageUrl from '../assets/images/snoopy_flying_ace_hero_1790487274294.jpg';
+import type { Difficulty, PilotStats, Skin } from '../types';
+import { MEDALS, resetPilotStats, SKINS } from '../utils/storage';
 
 interface DashboardProps {
   stats: PilotStats;

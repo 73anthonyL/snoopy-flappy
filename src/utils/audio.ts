@@ -9,10 +9,6 @@ class SoundEngine {
   private bgmInterval: number | null = null;
   public isMusicPlaying: boolean = false;
 
-  constructor() {
-    // AudioContext will be initialized on first user gesture
-  }
-
   private initCtx(): AudioContext | null {
     if (!this.ctx && typeof window !== 'undefined') {
       const AudioCtx =
@@ -240,13 +236,15 @@ class SoundEngine {
     let step = 0;
 
     const playChordStep = () => {
-      if (!this.isMusicPlaying || this.isMuted || !this.ctx) return;
+      // Captured in a local so the null check also holds inside the callback below
+      const ctx = this.ctx;
+      if (!this.isMusicPlaying || this.isMuted || !ctx) return;
       try {
         const chord = chords[step % chords.length];
-        const now = this.ctx.currentTime;
+        const now = ctx.currentTime;
         chord.forEach((freq, idx) => {
-          const osc = this.ctx!.createOscillator();
-          const gain = this.ctx!.createGain();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
           osc.type = 'sine';
           osc.frequency.setValueAtTime(freq, now + idx * 0.02);
 
@@ -255,7 +253,7 @@ class SoundEngine {
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
 
           osc.connect(gain);
-          gain.connect(this.ctx!.destination);
+          gain.connect(ctx.destination);
 
           osc.start(now + idx * 0.02);
           osc.stop(now + 0.75);
@@ -263,14 +261,14 @@ class SoundEngine {
 
         // Add a gentle upright bass note
         const bassFreq = chord[0] / 2;
-        const bassOsc = this.ctx.createOscillator();
-        const bassGain = this.ctx.createGain();
+        const bassOsc = ctx.createOscillator();
+        const bassGain = ctx.createGain();
         bassOsc.type = 'triangle';
         bassOsc.frequency.setValueAtTime(bassFreq, now);
         bassGain.gain.setValueAtTime(0.035, now);
         bassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
         bassOsc.connect(bassGain);
-        bassGain.connect(this.ctx.destination);
+        bassGain.connect(ctx.destination);
         bassOsc.start(now);
         bassOsc.stop(now + 0.65);
 

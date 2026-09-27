@@ -4,8 +4,9 @@
  * unlocked skin banners, and debrief sharing.
  */
 
-import React, { useEffect, useState } from 'react';
-import { Skin } from '../types';
+import type React from 'react';
+import { useEffect, useState } from 'react';
+import type { Skin } from '../types';
 import { sound } from '../utils/audio';
 import { SnoopyMoodReaction } from './SnoopyMoodReaction';
 
@@ -76,7 +77,7 @@ export const EndScreen: React.FC<EndScreenProps> = ({
     if (cause.includes('Lucy')) {
       return {
         quote:
-          "Lucy: 'That\'ll be five cents for psychiatric aviation advice! In advance!' Good grief.",
+          "Lucy: 'That'll be five cents for psychiatric aviation advice! In advance!' Good grief.",
         reaction: '💸 5 Cents Please',
       };
     }

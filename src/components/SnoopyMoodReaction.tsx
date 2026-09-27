@@ -6,7 +6,7 @@
  * Based on whether the player achieved a high score or a low score.
  */
 
-import React from 'react';
+import type React from 'react';
 
 interface SnoopyMoodReactionProps {
   score: number;
@@ -25,6 +25,8 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({ score, i
         <div className="flex flex-col items-center">
           <div className="relative w-48 h-40">
             <svg
+              role="img"
+              aria-label="Snoopy doing a happy dance"
               viewBox="0 0 200 160"
               className="w-full h-full drop-shadow-md overflow-visible"
               xmlns="http://www.w3.org/2000/svg"
@@ -278,6 +280,8 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({ score, i
         <div className="flex flex-col items-center">
           <div className="relative w-48 h-36">
             <svg
+              role="img"
+              aria-label="Snoopy slumped over his doghouse, dejected"
               viewBox="0 0 200 150"
               className="w-full h-full drop-shadow-md overflow-visible"
               xmlns="http://www.w3.org/2000/svg"

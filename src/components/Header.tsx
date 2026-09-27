@@ -3,8 +3,7 @@
  * [Brand wordmark] — [Clean Nav Links] — [Primary Actions]
  */
 
-import React from 'react';
-import { sound } from '../utils/audio';
+import type React from 'react';
 
 interface HeaderProps {
   currentView: 'GAME' | 'DASHBOARD';
