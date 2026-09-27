@@ -60,8 +60,7 @@ Tailwind v4 is loaded through the `@tailwindcss/vite` plugin with no `tailwind.c
 
 ## Things to know
 
-- **AI Studio leftovers.** `@google/genai`, `express`, `dotenv`, and `motion` are in `package.json`, and `.env.example` / `metadata.json` reference a Gemini API key, but nothing in `src/` uses any of them. No `.env` file is needed to run the game.
+- **Assets.** Reference images with an `import` so Vite bundles them; a literal `/src/...` URL only resolves on the dev server.
 - **`vite.config.ts` HMR block.** The `DISABLE_HMR` handling is for the AI Studio environment and is marked do-not-modify.
 - **Path alias.** `@/` resolves to the repository root, not `src/`.
-- **Image path.** `Dashboard.tsx` references an image with a literal `/src/assets/images/...` string. That works on the dev server but is not processed by the production build; images should be `import`ed so Vite bundles them.
 - **TypeScript is not strict.** `tsconfig.json` does not enable `strict`, so `npm run lint` will not catch null/implicit-any issues.
