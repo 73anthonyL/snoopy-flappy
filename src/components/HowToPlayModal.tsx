@@ -2,7 +2,7 @@
  * Flight Manual & Comic Rules Modal
  */
 
-import React from 'react';
+import type React from 'react';
 
 interface HowToPlayModalProps {
   isOpen: boolean;
@@ -17,7 +17,9 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
       <div className="bg-[#FFFDF7] comic-paper-bg comic-border-lg rounded-2xl w-full max-w-lg p-6 relative shadow-2xl my-auto text-stone-900">
         <div className="flex items-center justify-between border-b-2 border-stone-900 pb-3 mb-4">
           <div className="flex items-center gap-2">
-            <span className="text-2xl" role="img" aria-label="manual">📖</span>
+            <span className="text-2xl" role="img" aria-label="manual">
+              📖
+            </span>
             <div>
               <div className="text-xs uppercase font-mono font-bold tracking-wider text-red-600">
                 OFFICIAL SQUADRON HANDBOOK
@@ -65,10 +67,13 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
               <div className="bg-white comic-border-sm p-3 rounded-lg">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-xl">🦴</span>
-                  <strong className="font-comic text-sm text-amber-950">Dog Biscuits (+2 pts)</strong>
+                  <strong className="font-comic text-sm text-amber-950">
+                    Dog Biscuits (+2 pts)
+                  </strong>
                 </div>
                 <p className="font-comic text-stone-600">
-                  Crunchy bone snacks floating in the clouds to sustain Snoopy's energy on dawn patrol.
+                  Crunchy bone snacks floating in the clouds to sustain Snoopy's energy on dawn
+                  patrol.
                 </p>
               </div>
 
@@ -78,7 +83,8 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
                   <strong className="font-comic text-sm text-yellow-950">Woodstock (+5 pts)</strong>
                 </div>
                 <p className="font-comic text-stone-600">
-                  Rescue Woodstock! He will fly alongside your Sopwith Camel as your loyal wingman companion.
+                  Rescue Woodstock! He will fly alongside your Sopwith Camel as your loyal wingman
+                  companion.
                 </p>
               </div>
 
@@ -88,7 +94,8 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
                   <strong className="font-comic text-sm text-emerald-950">Kite-Eating Tree</strong>
                 </div>
                 <p className="font-comic text-stone-600">
-                  Charlie Brown's infamous nemesis tree! Don't let your doghouse get tangled in the kite strings.
+                  Charlie Brown's infamous nemesis tree! Don't let your doghouse get tangled in the
+                  kite strings.
                 </p>
               </div>
 
@@ -106,7 +113,8 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({ isOpen, onClose 
 
           {/* Charles Schulz Quote */}
           <div className="bg-stone-100 p-3 rounded-xl border border-stone-300 text-center italic font-comic text-stone-700 text-sm">
-            "Here's the World War I Flying Ace zooming through the sky looking for the Red Baron... Rat-tat-tat-tat-tat!"
+            "Here's the World War I Flying Ace zooming through the sky looking for the Red Baron...
+            Rat-tat-tat-tat-tat!"
           </div>
         </div>
 

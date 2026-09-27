@@ -2,13 +2,13 @@
 
 @layer utilities {
   .font-comic {
-    font-family: 'Patrick Hand', cursive, sans-serif;
+    font-family: "Patrick Hand", cursive, sans-serif;
   }
   .font-sans {
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
   }
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
   }
   .comic-border {
     border: 3px solid #1c1917;
@@ -23,7 +23,9 @@
     box-shadow: 6px 6px 0px #1c1917;
   }
   .comic-border-hover {
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
   }
   .comic-border-hover:hover {
     transform: translate(-2px, -2px);
@@ -37,7 +39,7 @@
 
 /* Comic paper subtle dot halftone overlay */
 .comic-paper-bg {
-  background-color: #FBF8EF;
+  background-color: #fbf8ef;
   background-image: radial-gradient(#d6ceb8 0.75px, transparent 0.75px);
   background-size: 16px 16px;
 }

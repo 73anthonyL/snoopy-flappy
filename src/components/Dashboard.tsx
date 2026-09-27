@@ -4,11 +4,12 @@
  * and historical sortie log.
  */
 
-import React, { useState } from 'react';
-import { PilotStats, Difficulty, Skin } from '../types';
-import { SKINS, MEDALS, resetPilotStats } from '../utils/storage';
+import type React from 'react';
+import { useState } from 'react';
 // Imported rather than referenced by URL string so Vite bundles it into the production build
 import heroImageUrl from '../assets/images/snoopy_flying_ace_hero_1790487274294.jpg';
+import type { Difficulty, PilotStats, Skin } from '../types';
+import { MEDALS, resetPilotStats, SKINS } from '../utils/storage';
 
 interface DashboardProps {
   stats: PilotStats;
@@ -29,14 +30,19 @@ export const Dashboard: React.FC<DashboardProps> = ({
   onTakeOff,
   onStatsReset,
 }) => {
-  const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'HANGAR' | 'MEDALS' | 'LOGBOOK'>('OVERVIEW');
+  const [activeTab, setActiveTab] = useState<'OVERVIEW' | 'HANGAR' | 'MEDALS' | 'LOGBOOK'>(
+    'OVERVIEW',
+  );
   const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   // Compute military rank based on score
   const getPilotRank = (highScore: number) => {
-    if (highScore >= 40) return { title: 'Legendary Sky Beagle', starCount: 5, color: 'text-amber-500' };
-    if (highScore >= 25) return { title: 'Squadron Commander Ace', starCount: 4, color: 'text-red-600' };
-    if (highScore >= 15) return { title: 'First Lieutenant Aviator', starCount: 3, color: 'text-blue-600' };
+    if (highScore >= 40)
+      return { title: 'Legendary Sky Beagle', starCount: 5, color: 'text-amber-500' };
+    if (highScore >= 25)
+      return { title: 'Squadron Commander Ace', starCount: 4, color: 'text-red-600' };
+    if (highScore >= 15)
+      return { title: 'First Lieutenant Aviator', starCount: 3, color: 'text-blue-600' };
     if (highScore >= 5) return { title: 'Flight Cadet', starCount: 2, color: 'text-emerald-600' };
     return { title: 'Backyard Fledgling', starCount: 1, color: 'text-stone-600' };
   };
@@ -77,9 +83,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <span className="bg-red-600 text-white font-mono text-xs font-bold px-2 py-0.5 rounded tracking-wider uppercase">
                 SQUADRON NO. 1
               </span>
-              <span className="text-amber-300 font-mono text-xs font-semibold">
-                ★ {rank.title}
-              </span>
+              <span className="text-amber-300 font-mono text-xs font-semibold">★ {rank.title}</span>
             </div>
             <h1 className="font-comic text-3xl sm:text-4xl font-black text-amber-200 leading-tight">
               Snoopy's Flight Deck
@@ -196,7 +200,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
           {/* Secondary Telemetry row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-[#FFFDF7] comic-border-sm p-4 rounded-xl flex items-center gap-3">
-              <span className="text-3xl" role="img" aria-label="clock">⏱️</span>
+              <span className="text-3xl" role="img" aria-label="clock">
+                ⏱️
+              </span>
               <div>
                 <div className="text-xs font-mono font-bold uppercase text-stone-500">Air Time</div>
                 <div className="font-mono text-xl font-black text-stone-900 tabular-nums">
@@ -206,9 +212,13 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </div>
 
             <div className="bg-[#FFFDF7] comic-border-sm p-4 rounded-xl flex items-center gap-3">
-              <span className="text-3xl" role="img" aria-label="distance">🗺️</span>
+              <span className="text-3xl" role="img" aria-label="distance">
+                🗺️
+              </span>
               <div>
-                <div className="text-xs font-mono font-bold uppercase text-stone-500">Air Miles Covered</div>
+                <div className="text-xs font-mono font-bold uppercase text-stone-500">
+                  Air Miles Covered
+                </div>
                 <div className="font-mono text-xl font-black text-stone-900 tabular-nums">
                   ~{totalDistanceMiles} mi
                 </div>
@@ -216,9 +226,13 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </div>
 
             <div className="bg-[#FFFDF7] comic-border-sm p-4 rounded-xl flex items-center gap-3">
-              <span className="text-3xl" role="img" aria-label="pilot">🛩️</span>
+              <span className="text-3xl" role="img" aria-label="pilot">
+                🛩️
+              </span>
               <div>
-                <div className="text-xs font-mono font-bold uppercase text-stone-500">Active Ace</div>
+                <div className="text-xs font-mono font-bold uppercase text-stone-500">
+                  Active Ace
+                </div>
                 <div className="font-comic text-xl font-bold text-stone-900 truncate">
                   {selectedSkin.name}
                 </div>
@@ -250,7 +264,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="font-comic text-lg font-bold text-emerald-950">Pleasant Dog Day</span>
+                  <span className="font-comic text-lg font-bold text-emerald-950">
+                    Pleasant Dog Day
+                  </span>
                   <span className="text-xl">☀️</span>
                 </div>
                 <p className="text-xs text-stone-600 font-comic leading-snug">
@@ -268,7 +284,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="font-comic text-lg font-bold text-amber-950">Flying Ace Sortie</span>
+                  <span className="font-comic text-lg font-bold text-amber-950">
+                    Flying Ace Sortie
+                  </span>
                   <span className="text-xl">🛩️</span>
                 </div>
                 <p className="text-xs text-stone-600 font-comic leading-snug">
@@ -330,8 +348,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
                     isSelected
                       ? 'comic-border ring-3 ring-amber-400 bg-amber-50/50'
                       : isUnlocked
-                      ? 'comic-border-sm hover:border-stone-900'
-                      : 'border-2 border-dashed border-stone-300 bg-stone-100/70 opacity-75'
+                        ? 'comic-border-sm hover:border-stone-900'
+                        : 'border-2 border-dashed border-stone-300 bg-stone-100/70 opacity-75'
                   }`}
                 >
                   <div className="flex items-start gap-3">
@@ -482,7 +500,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
           {stats.history.length === 0 ? (
             <div className="bg-white comic-paper-bg comic-border-sm p-8 rounded-xl text-center">
-              <span className="text-4xl block mb-2" role="img" aria-label="airplane">🛩️</span>
+              <span className="text-4xl block mb-2" role="img" aria-label="airplane">
+                🛩️
+              </span>
               <p className="font-comic text-lg font-bold text-stone-700">No sortie records yet!</p>
               <p className="font-comic text-sm text-stone-500 mt-1">
                 Press Spacebar to launch your first flight and log your heroic aerial deeds!
@@ -506,7 +526,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   <tbody className="divide-y divide-stone-200 font-sans">
                     {stats.history.map((record) => (
                       <tr key={record.id} className="hover:bg-amber-50/40 transition-colors">
-                        <td className="py-2 px-3 text-stone-500 font-mono whitespace-nowrap">{record.date}</td>
+                        <td className="py-2 px-3 text-stone-500 font-mono whitespace-nowrap">
+                          {record.date}
+                        </td>
                         <td className="py-2 px-3 font-comic font-bold text-stone-900 whitespace-nowrap">
                           {SKINS.find((s) => s.id === record.skinId)?.name || 'Flying Ace'}
                         </td>
@@ -522,7 +544,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
                         <td className="py-2 px-3 text-right font-mono tabular-nums text-stone-600">
                           {record.durationSeconds}s
                         </td>
-                        <td className="py-2 px-3 text-stone-600 font-comic text-xs truncate max-w-[200px]" title={record.cause}>
+                        <td
+                          className="py-2 px-3 text-stone-600 font-comic text-xs truncate max-w-[200px]"
+                          title={record.cause}
+                        >
                           {record.cause}
                         </td>
                       </tr>
@@ -539,7 +564,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
       {showResetConfirm && (
         <div className="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white comic-border-lg rounded-2xl p-6 max-w-sm w-full text-center">
-            <span className="text-3xl block mb-2" role="img" aria-label="warning">⚠️</span>
+            <span className="text-3xl block mb-2" role="img" aria-label="warning">
+              ⚠️
+            </span>
             <h4 className="font-comic text-2xl font-black text-stone-900 mb-2">
               Clear Flight Records?
             </h4>
