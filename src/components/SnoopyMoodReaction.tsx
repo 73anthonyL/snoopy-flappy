@@ -14,10 +14,7 @@ interface SnoopyMoodReactionProps {
   isNewRecord: boolean;
 }
 
-export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
-  score,
-  isNewRecord,
-}) => {
+export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({ score, isNewRecord }) => {
   // Cheering threshold: score >= 8 or a new personal record (when score > 0)
   const isCheering = isNewRecord || score >= 8;
 
@@ -38,8 +35,22 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
                 <circle cx="175" cy="35" r="4" fill="#F59E0B" />
                 <circle cx="40" cy="70" r="3" fill="#3B82F6" />
                 <circle cx="160" cy="80" r="3.5" fill="#10B981" />
-                <rect x="30" y="45" width="6" height="4" fill="#EC4899" transform="rotate(25 30 45)" />
-                <rect x="165" y="55" width="5" height="5" fill="#8B5CF6" transform="rotate(-15 165 55)" />
+                <rect
+                  x="30"
+                  y="45"
+                  width="6"
+                  height="4"
+                  fill="#EC4899"
+                  transform="rotate(25 30 45)"
+                />
+                <rect
+                  x="165"
+                  y="55"
+                  width="5"
+                  height="5"
+                  fill="#8B5CF6"
+                  transform="rotate(-15 165 55)"
+                />
 
                 {/* Musical Notes */}
                 <path
@@ -81,7 +92,15 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
                   strokeLinecap="round"
                   fill="none"
                 />
-                <ellipse cx="54" cy="133" rx="5" ry="3" fill="#FFFFFF" stroke="#1C1917" strokeWidth="2.5" />
+                <ellipse
+                  cx="54"
+                  cy="133"
+                  rx="5"
+                  ry="3"
+                  fill="#FFFFFF"
+                  stroke="#1C1917"
+                  strokeWidth="2.5"
+                />
 
                 {/* Right Leg */}
                 <path
@@ -91,7 +110,15 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
                   strokeLinecap="round"
                   fill="none"
                 />
-                <ellipse cx="118" cy="133" rx="5" ry="3" fill="#FFFFFF" stroke="#1C1917" strokeWidth="2.5" />
+                <ellipse
+                  cx="118"
+                  cy="133"
+                  rx="5"
+                  ry="3"
+                  fill="#FFFFFF"
+                  stroke="#1C1917"
+                  strokeWidth="2.5"
+                />
 
                 {/* Body (Plump Beagle Belly) */}
                 <ellipse
@@ -104,7 +131,14 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
                   strokeWidth="3.5"
                 />
                 {/* Black spot on back */}
-                <ellipse cx="68" cy="94" rx="6" ry="10" fill="#1C1917" transform="rotate(-15 68 94)" />
+                <ellipse
+                  cx="68"
+                  cy="94"
+                  rx="6"
+                  ry="10"
+                  fill="#1C1917"
+                  transform="rotate(-15 68 94)"
+                />
 
                 {/* Left Arm Raised High in Celebration */}
                 <path
@@ -188,18 +222,42 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
               {/* Woodstock Cheering next to Snoopy! */}
               <g transform="translate(138, 55)">
                 {/* Woodstock Body */}
-                <ellipse cx="16" cy="18" rx="8" ry="6" fill="#FACC15" stroke="#1C1917" strokeWidth="2" />
+                <ellipse
+                  cx="16"
+                  cy="18"
+                  rx="8"
+                  ry="6"
+                  fill="#FACC15"
+                  stroke="#1C1917"
+                  strokeWidth="2"
+                />
                 <circle cx="21" cy="12" r="5" fill="#FACC15" stroke="#1C1917" strokeWidth="2" />
                 {/* Spiky hair */}
-                <path d="M 18 8 L 17 2 M 20 7 L 21 1 M 23 8 L 25 3" stroke="#1C1917" strokeWidth="1.8" />
+                <path
+                  d="M 18 8 L 17 2 M 20 7 L 21 1 M 23 8 L 25 3"
+                  stroke="#1C1917"
+                  strokeWidth="1.8"
+                />
                 {/* Beak */}
-                <path d="M 25 11 L 30 13 L 25 14 Z" fill="#F59E0B" stroke="#1C1917" strokeWidth="1.5" />
+                <path
+                  d="M 25 11 L 30 13 L 25 14 Z"
+                  fill="#F59E0B"
+                  stroke="#1C1917"
+                  strokeWidth="1.5"
+                />
                 {/* Eye */}
                 <circle cx="22" cy="11" r="1" fill="#1C1917" />
                 {/* Raised Wings */}
                 <path d="M 14 16 L 8 8 L 12 18" stroke="#1C1917" strokeWidth="2" fill="#FACC15" />
                 {/* Exclamation marks */}
-                <text x="32" y="10" fontSize="12" fontFamily="Patrick Hand, cursive" fontWeight="bold" fill="#F59E0B">
+                <text
+                  x="32"
+                  y="10"
+                  fontSize="12"
+                  fontFamily="Patrick Hand, cursive"
+                  fontWeight="bold"
+                  fill="#F59E0B"
+                >
                   !
                 </text>
               </g>
@@ -258,13 +316,16 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
               {/* Snoopy Lying Completely Flat & Dejected Across the Roof Peak */}
               <g transform="translate(0, 0)">
                 {/* Back paw dangling limply down left roof */}
-                <path
-                  d="M 46 86 L 40 105"
+                <path d="M 46 86 L 40 105" stroke="#1C1917" strokeWidth="5" strokeLinecap="round" />
+                <ellipse
+                  cx="39"
+                  cy="106"
+                  rx="4.5"
+                  ry="3"
+                  fill="#FFFFFF"
                   stroke="#1C1917"
-                  strokeWidth="5"
-                  strokeLinecap="round"
+                  strokeWidth="2.5"
                 />
-                <ellipse cx="39" cy="106" rx="4.5" ry="3" fill="#FFFFFF" stroke="#1C1917" strokeWidth="2.5" />
 
                 {/* Snoopy Limp Torso along roof */}
                 <ellipse
@@ -286,10 +347,26 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
                   strokeWidth="5"
                   strokeLinecap="round"
                 />
-                <ellipse cx="141" cy="103" rx="4.5" ry="3" fill="#FFFFFF" stroke="#1C1917" strokeWidth="2.5" />
+                <ellipse
+                  cx="141"
+                  cy="103"
+                  rx="4.5"
+                  ry="3"
+                  fill="#FFFFFF"
+                  stroke="#1C1917"
+                  strokeWidth="2.5"
+                />
 
                 {/* Red Collar */}
-                <rect x="118" y="65" width="4" height="12" fill="#B91C1C" stroke="#1C1917" strokeWidth="1" />
+                <rect
+                  x="118"
+                  y="65"
+                  width="4"
+                  height="12"
+                  fill="#B91C1C"
+                  stroke="#1C1917"
+                  strokeWidth="1"
+                />
 
                 {/* Dejected Head resting flat on the roof */}
                 <ellipse
@@ -323,7 +400,15 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
                 />
 
                 {/* Sad Closed/Slanted Eye */}
-                <line x1="145" y1="65" x2="152" y2="67" stroke="#1C1917" strokeWidth="2.5" strokeLinecap="round" />
+                <line
+                  x1="145"
+                  y1="65"
+                  x2="152"
+                  y2="67"
+                  stroke="#1C1917"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
 
                 {/* Disappointed Frown */}
                 <path
@@ -337,7 +422,15 @@ export const SnoopyMoodReaction: React.FC<SnoopyMoodReactionProps> = ({
 
               {/* Thought Bubble with "BLEAH!" or "GOOD GRIEF!" */}
               <g transform="translate(68, 12)">
-                <ellipse cx="28" cy="16" rx="26" ry="14" fill="#FFFFFF" stroke="#1C1917" strokeWidth="2.5" />
+                <ellipse
+                  cx="28"
+                  cy="16"
+                  rx="26"
+                  ry="14"
+                  fill="#FFFFFF"
+                  stroke="#1C1917"
+                  strokeWidth="2.5"
+                />
                 <circle cx="18" cy="33" r="3" fill="#FFFFFF" stroke="#1C1917" strokeWidth="2" />
                 <circle cx="24" cy="40" r="1.8" fill="#FFFFFF" stroke="#1C1917" strokeWidth="1.5" />
                 <text

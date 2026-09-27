@@ -61,38 +61,44 @@ export const EndScreen: React.FC<EndScreenProps> = ({
   const getSnoopyQuote = () => {
     if (isNewRecord && score >= 10) {
       return {
-        quote: "HAPPY DANCE! The World War I Flying Ace has triumphed! Bring out the root beer and French pastries!",
-        reaction: "🕺 Happy Dance Time"
+        quote:
+          'HAPPY DANCE! The World War I Flying Ace has triumphed! Bring out the root beer and French pastries!',
+        reaction: '🕺 Happy Dance Time',
       };
     }
     if (cause.includes('Kite-Eating Tree')) {
       return {
-        quote: "Bleah! That kite-eating tree doesn't just eat Charlie Brown's kites—it has an appetite for Sopwith Camels!",
-        reaction: "🌳 Tree Trouble"
+        quote:
+          "Bleah! That kite-eating tree doesn't just eat Charlie Brown's kites—it has an appetite for Sopwith Camels!",
+        reaction: '🌳 Tree Trouble',
       };
     }
     if (cause.includes('Lucy')) {
       return {
-        quote: "Lucy: 'That\'ll be five cents for psychiatric aviation advice! In advance!' Good grief.",
-        reaction: "💸 5 Cents Please"
+        quote:
+          "Lucy: 'That\'ll be five cents for psychiatric aviation advice! In advance!' Good grief.",
+        reaction: '💸 5 Cents Please',
       };
     }
     if (cause.includes('Red Baron')) {
       return {
-        quote: "CURSE YOU, RED BARON! My Sopwith Camel took heavy flak, but I shall return to fight another day!",
-        reaction: "🛩️ Curse You Red Baron!"
+        quote:
+          'CURSE YOU, RED BARON! My Sopwith Camel took heavy flak, but I shall return to fight another day!',
+        reaction: '🛩️ Curse You Red Baron!',
       };
     }
     return {
-      quote: "Here's the World War I Flying Ace nursing a mug of root beer at a quiet French bistro...",
-      reaction: "🍺 Root Beer Break"
+      quote:
+        "Here's the World War I Flying Ace nursing a mug of root beer at a quiet French bistro...",
+      reaction: '🍺 Root Beer Break',
     };
   };
 
   const debrief = getSnoopyQuote();
 
   const handleCopyReport = async () => {
-    const text = `🛩️ SNOOPY'S FLYING ACE MISSION REPORT 🛩️\n` +
+    const text =
+      `🛩️ SNOOPY'S FLYING ACE MISSION REPORT 🛩️\n` +
       `Pilot: ${skin.name}\n` +
       `Sortie Score: ${score} pts (Best: ${highScore})\n` +
       `🦴 Dog Biscuits: ${biscuits} | 🐤 Woodstocks Rescued: ${woodstocks}\n` +
@@ -114,7 +120,9 @@ export const EndScreen: React.FC<EndScreenProps> = ({
         {/* Top Header Bar */}
         <div className="flex items-center justify-between border-b-2 border-stone-900 pb-3 mb-4">
           <div className="flex items-center gap-2">
-            <span className="text-2xl" role="img" aria-label="doghouse">🐶</span>
+            <span className="text-2xl" role="img" aria-label="doghouse">
+              🐶
+            </span>
             <div>
               <div className="text-xs uppercase font-mono font-bold tracking-wider text-red-600">
                 OFFICIAL FLIGHT LOGBOOK
@@ -160,9 +168,7 @@ export const EndScreen: React.FC<EndScreenProps> = ({
             <div className="text-xs font-mono font-bold uppercase text-stone-500 mb-0.5">
               SORTIE SCORE
             </div>
-            <div className="font-mono text-4xl font-black text-stone-950 tabular-nums">
-              {score}
-            </div>
+            <div className="font-mono text-4xl font-black text-stone-950 tabular-nums">{score}</div>
             <div className="text-xs font-comic text-stone-600 mt-1">
               Personal Best: <strong className="font-mono">{highScore}</strong>
             </div>
@@ -174,7 +180,8 @@ export const EndScreen: React.FC<EndScreenProps> = ({
               AIR TIME
             </div>
             <div className="font-mono text-4xl font-black text-stone-950 tabular-nums">
-              {durationSeconds}<span className="text-xl font-normal text-stone-500">s</span>
+              {durationSeconds}
+              <span className="text-xl font-normal text-stone-500">s</span>
             </div>
             <div className="text-xs font-comic text-stone-600 mt-1">
               Est. Distance: <strong className="font-mono">{score * 75 + 120} yds</strong>
@@ -183,26 +190,32 @@ export const EndScreen: React.FC<EndScreenProps> = ({
 
           {/* Dog Biscuits Collected */}
           <div className="bg-amber-100 comic-border-sm p-3 rounded-xl flex items-center gap-3">
-            <span className="text-3xl" role="img" aria-label="dog biscuit">🦴</span>
+            <span className="text-3xl" role="img" aria-label="dog biscuit">
+              🦴
+            </span>
             <div>
               <div className="text-xs font-mono font-bold uppercase text-amber-900">
                 DOG BISCUITS
               </div>
               <div className="font-mono text-2xl font-black text-amber-950 tabular-nums">
-                +{biscuits} <span className="text-xs font-bold text-amber-800">(+{biscuits * 2} pts)</span>
+                +{biscuits}{' '}
+                <span className="text-xs font-bold text-amber-800">(+{biscuits * 2} pts)</span>
               </div>
             </div>
           </div>
 
           {/* Woodstock Rescues */}
           <div className="bg-yellow-100 comic-border-sm p-3 rounded-xl flex items-center gap-3">
-            <span className="text-3xl" role="img" aria-label="woodstock">🐤</span>
+            <span className="text-3xl" role="img" aria-label="woodstock">
+              🐤
+            </span>
             <div>
               <div className="text-xs font-mono font-bold uppercase text-yellow-900">
                 WOODSTOCK RESCUED
               </div>
               <div className="font-mono text-2xl font-black text-yellow-950 tabular-nums">
-                +{woodstocks} <span className="text-xs font-bold text-yellow-800">(+{woodstocks * 5} pts)</span>
+                +{woodstocks}{' '}
+                <span className="text-xs font-bold text-yellow-800">(+{woodstocks * 5} pts)</span>
               </div>
             </div>
           </div>
@@ -210,12 +223,14 @@ export const EndScreen: React.FC<EndScreenProps> = ({
 
         {/* Cause of Landing / Incident */}
         <div className="bg-red-50 border-2 border-red-200 p-2.5 rounded-lg mb-5 flex items-start gap-2.5">
-          <span className="text-xl shrink-0" role="img" aria-label="incident">⚠️</span>
+          <span className="text-xl shrink-0" role="img" aria-label="incident">
+            ⚠️
+          </span>
           <div>
-            <div className="text-xs font-mono font-bold uppercase text-red-700">Flight Termination Notice</div>
-            <div className="font-comic text-sm font-bold text-red-950 leading-tight">
-              {cause}
+            <div className="text-xs font-mono font-bold uppercase text-red-700">
+              Flight Termination Notice
             </div>
+            <div className="font-comic text-sm font-bold text-red-950 leading-tight">{cause}</div>
           </div>
         </div>
 
@@ -226,7 +241,7 @@ export const EndScreen: React.FC<EndScreenProps> = ({
               🎉 NEW OUTFIT UNLOCKED IN HANGAR!
             </div>
             <div className="font-comic text-lg font-black text-emerald-950 mt-0.5">
-              {newlyUnlockedSkins.map(s => `${s.icon} ${s.name}`).join(', ')}
+              {newlyUnlockedSkins.map((s) => `${s.icon} ${s.name}`).join(', ')}
             </div>
           </div>
         )}

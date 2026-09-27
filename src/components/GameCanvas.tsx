@@ -71,7 +71,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
       speed: 2.7,
       gravity: 0.35,
       jumpVy: -6.8,
-    }
+    },
   });
 
   // Sync difficulty parameters
@@ -110,7 +110,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
         color: 'rgba(255, 255, 255, 0.9)',
         radius: 5 + Math.random() * 5,
         life: 25,
-        maxLife: 25
+        maxLife: 25,
       });
     }
   }, [gameState, onStartFlight]);
@@ -198,7 +198,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           if (s.playerY >= groundY - 20) {
             s.playerY = groundY - 20;
             s.isCrashing = true;
-            s.crashCause = 'Crash landed in Charlie Brown\'s backyard lawn!';
+            s.crashCause = "Crash landed in Charlie Brown's backyard lawn!";
             sound.playCrash();
             triggerCrashParticles(s.playerX, s.playerY, 'AAUGH!');
           }
@@ -233,7 +233,12 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
             const bottomHeight = groundY - topHeight - s.difficultyParams.gap;
 
             // Pick random comic obstacle type
-            const types: Array<'TREE' | 'BOOTH' | 'PIANO' | 'RED_BARON'> = ['TREE', 'BOOTH', 'PIANO', 'RED_BARON'];
+            const types: Array<'TREE' | 'BOOTH' | 'PIANO' | 'RED_BARON'> = [
+              'TREE',
+              'BOOTH',
+              'PIANO',
+              'RED_BARON',
+            ];
             const obstacleType = types[Math.floor(Math.random() * types.length)];
 
             // 55% chance for a dog biscuit, 25% chance for Woodstock
@@ -253,7 +258,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
               biscuitCollected: false,
               hasWoodstock,
               woodstockY: itemY,
-              woodstockRescued: false
+              woodstockRescued: false,
             });
           }
 
@@ -275,7 +280,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
               left: s.playerX - 22,
               right: s.playerX + 22,
               top: s.playerY - 17,
-              bottom: s.playerY + 17
+              bottom: s.playerY + 17,
             };
 
             const obsLeft = obs.x;
@@ -351,7 +356,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
               phase: Math.random() * Math.PI * 2,
               amplitude: 22 + Math.random() * 18,
               passed: false,
-              type: isKiteHazard ? 'KITE_WIND_GUST' : 'ERRATIC_WOODSTOCK'
+              type: isKiteHazard ? 'KITE_WIND_GUST' : 'ERRATIC_WOODSTOCK',
             });
             // Reset spawn timer (every ~4 to 7 seconds)
             s.flyingWoodstockTimer = 220 + Math.floor(Math.random() * 160);
@@ -367,7 +372,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
               left: s.playerX - 20,
               right: s.playerX + 20,
               top: s.playerY - 15,
-              bottom: s.playerY + 15
+              bottom: s.playerY + 15,
             };
 
             const hitWoodstock =
@@ -378,9 +383,10 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
 
             if (hitWoodstock && !s.isCrashing) {
               s.isCrashing = true;
-              s.crashCause = fw.type === 'KITE_WIND_GUST'
-                ? "Tangled by Charlie Brown's windblown kite flying across the sky!"
-                : "Startled by Woodstock performing acrobatic loop-de-loops in your flight path!";
+              s.crashCause =
+                fw.type === 'KITE_WIND_GUST'
+                  ? "Tangled by Charlie Brown's windblown kite flying across the sky!"
+                  : 'Startled by Woodstock performing acrobatic loop-de-loops in your flight path!';
               sound.playCrash();
               triggerCrashParticles(s.playerX, s.playerY, 'CHIRP! AAUGH!');
             }
@@ -395,7 +401,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
                 s.playerX,
                 s.playerY - 22,
                 fw.type === 'KITE_WIND_GUST' ? 'DODGED KITE! +1' : 'DODGED WOODSTOCK! +1',
-                '#EAB308'
+                '#EAB308',
               );
             }
 
@@ -421,7 +427,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
               biscuits: s.biscuits,
               woodstocks: s.woodstocks,
               durationSeconds: flightDuration,
-              cause: s.crashCause
+              cause: s.crashCause,
             });
             return;
           }
@@ -496,7 +502,16 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
       }
 
       // H. Draw Player (Snoopy on Doghouse or custom skin)
-      drawPlayer(ctx, s.playerX, s.playerY, s.playerAngle, skin, s.propellerAngle, s.scarfPhase, s.isCrashing);
+      drawPlayer(
+        ctx,
+        s.playerX,
+        s.playerY,
+        s.playerAngle,
+        skin,
+        s.propellerAngle,
+        s.scarfPhase,
+        s.isCrashing,
+      );
 
       // I. Comic halftone dot aesthetic overlay
       drawComicVignette(ctx, width, height);
@@ -517,7 +532,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           color: ['#DC2626', '#FACC15', '#FFFFFF', '#1C1917'][Math.floor(Math.random() * 4)],
           radius: 3 + Math.random() * 4,
           life: 30,
-          maxLife: 30
+          maxLife: 30,
         });
       }
       spawnFloatingText(x, y - 35, text, '#DC2626');
@@ -533,18 +548,18 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
         radius: 0,
         life: 40,
         maxLife: 40,
-        text
+        text,
       });
     };
 
     const getCrashName = (type: Obstacle['type']): string => {
       switch (type) {
         case 'TREE':
-          return 'Tangled inside Charlie Brown\'s Kite-Eating Tree!';
+          return "Tangled inside Charlie Brown's Kite-Eating Tree!";
         case 'BOOTH':
-          return 'Crashed into Lucy\'s 5¢ Psychiatric Booth!';
+          return "Crashed into Lucy's 5¢ Psychiatric Booth!";
         case 'PIANO':
-          return 'Slammed into Schroeder\'s Grand Piano keys!';
+          return "Slammed into Schroeder's Grand Piano keys!";
         case 'RED_BARON':
           return 'Shot down by the Infamous Red Baron!';
       }
@@ -591,19 +606,31 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           <div className="absolute top-6 left-6 right-6 flex items-center justify-between pointer-events-none">
             {/* Score Badge */}
             <div className="bg-amber-300 comic-border-sm px-4 py-1.5 rounded-xl shadow-md flex items-center gap-2">
-              <span className="font-comic text-xl font-bold text-stone-900 tracking-wide">SCORE</span>
-              <span className="font-mono text-2xl font-black text-stone-950 tabular-nums">{hudScore}</span>
+              <span className="font-comic text-xl font-bold text-stone-900 tracking-wide">
+                SCORE
+              </span>
+              <span className="font-mono text-2xl font-black text-stone-950 tabular-nums">
+                {hudScore}
+              </span>
             </div>
 
             {/* Collectibles count */}
             <div className="flex items-center gap-2.5">
               <div className="bg-white/95 comic-border-sm px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
-                <span className="text-base" role="img" aria-label="dog biscuit">🦴</span>
-                <span className="font-mono text-sm font-bold text-stone-900 tabular-nums">{hudBiscuits}</span>
+                <span className="text-base" role="img" aria-label="dog biscuit">
+                  🦴
+                </span>
+                <span className="font-mono text-sm font-bold text-stone-900 tabular-nums">
+                  {hudBiscuits}
+                </span>
               </div>
               <div className="bg-amber-200/95 comic-border-sm px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
-                <span className="text-base" role="img" aria-label="woodstock">🐤</span>
-                <span className="font-mono text-sm font-bold text-stone-900 tabular-nums">{hudWoodstocks}</span>
+                <span className="text-base" role="img" aria-label="woodstock">
+                  🐤
+                </span>
+                <span className="font-mono text-sm font-bold text-stone-900 tabular-nums">
+                  {hudWoodstocks}
+                </span>
               </div>
             </div>
           </div>
@@ -624,7 +651,9 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
               </p>
 
               <div className="bg-amber-100 border-2 border-dashed border-amber-400 p-3 rounded-xl mb-4">
-                <div className="text-xs uppercase font-bold tracking-wider text-amber-900 mb-1">Controls</div>
+                <div className="text-xs uppercase font-bold tracking-wider text-amber-900 mb-1">
+                  Controls
+                </div>
                 <div className="flex items-center justify-center gap-2">
                   <kbd className="px-3 py-1.5 bg-stone-900 text-white font-mono text-sm font-bold rounded-lg shadow-inner">
                     SPACEBAR
@@ -664,7 +693,12 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
 /*                           CANVAS DRAWING UTILITIES                         */
 /* -------------------------------------------------------------------------- */
 
-function drawComicClouds(ctx: CanvasRenderingContext2D, width: number, groundY: number, offset: number) {
+function drawComicClouds(
+  ctx: CanvasRenderingContext2D,
+  width: number,
+  groundY: number,
+  offset: number,
+) {
   ctx.save();
   ctx.fillStyle = 'rgba(255, 255, 255, 0.88)';
   ctx.strokeStyle = '#1C1917';
@@ -677,7 +711,7 @@ function drawComicClouds(ctx: CanvasRenderingContext2D, width: number, groundY: 
     { x: 720 - offset, y: 110, s: 1.0 },
   ];
 
-  clouds.forEach(c => {
+  clouds.forEach((c) => {
     let cx = c.x;
     while (cx < -120) cx += width + 200;
     while (cx > width + 120) cx -= width + 200;
@@ -710,7 +744,12 @@ function drawComicClouds(ctx: CanvasRenderingContext2D, width: number, groundY: 
   ctx.restore();
 }
 
-function drawSuburbanHills(ctx: CanvasRenderingContext2D, width: number, groundY: number, offset: number) {
+function drawSuburbanHills(
+  ctx: CanvasRenderingContext2D,
+  width: number,
+  groundY: number,
+  offset: number,
+) {
   ctx.save();
   ctx.fillStyle = '#A3E635'; // Peanuts suburban green
   ctx.strokeStyle = '#1C1917';
@@ -721,7 +760,8 @@ function drawSuburbanHills(ctx: CanvasRenderingContext2D, width: number, groundY
 
   // Gentle comic hills
   for (let x = 0; x <= width; x += 20) {
-    const hillY = groundY - 35 + Math.sin((x + offset) * 0.015) * 18 + Math.cos((x + offset) * 0.03) * 8;
+    const hillY =
+      groundY - 35 + Math.sin((x + offset) * 0.015) * 18 + Math.cos((x + offset) * 0.03) * 8;
     ctx.lineTo(x, hillY);
   }
 
@@ -732,8 +772,8 @@ function drawSuburbanHills(ctx: CanvasRenderingContext2D, width: number, groundY
 
   // Draw Charlie Brown's famous zig-zag silhouette fence & trees along hill
   const fenceSpots = [80, 220, 360, 500];
-  fenceSpots.forEach(fx => {
-    let px = (fx - offset * 0.5);
+  fenceSpots.forEach((fx) => {
+    let px = fx - offset * 0.5;
     while (px < -60) px += width + 120;
     while (px > width + 60) px -= width + 120;
 
@@ -757,7 +797,13 @@ function drawSuburbanHills(ctx: CanvasRenderingContext2D, width: number, groundY
   ctx.restore();
 }
 
-function drawGround(ctx: CanvasRenderingContext2D, width: number, height: number, groundY: number, offset: number) {
+function drawGround(
+  ctx: CanvasRenderingContext2D,
+  width: number,
+  height: number,
+  groundY: number,
+  offset: number,
+) {
   ctx.save();
 
   // Lower dirt layer
@@ -956,7 +1002,12 @@ function drawObstacle(ctx: CanvasRenderingContext2D, obs: Obstacle, groundY: num
   ctx.restore();
 }
 
-function drawTangledKite(ctx: CanvasRenderingContext2D, x: number, y: number, color: string = '#EF4444') {
+function drawTangledKite(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  color: string = '#EF4444',
+) {
   ctx.save();
   ctx.translate(x, y);
   ctx.rotate(0.3);
@@ -1013,7 +1064,7 @@ function drawPianoKeys(ctx: CanvasRenderingContext2D, x: number, y: number, w: n
   // Black keys
   ctx.fillStyle = '#1C1917';
   const blackKeys = [1, 2, 4];
-  blackKeys.forEach(k => {
+  blackKeys.forEach((k) => {
     ctx.fillRect(x + k * keyW - keyW * 0.3, y, keyW * 0.6, h * 0.6);
   });
   ctx.restore();
@@ -1124,7 +1175,12 @@ function drawFloatingWoodstock(ctx: CanvasRenderingContext2D, x: number, y: numb
   ctx.restore();
 }
 
-function drawWoodstockCompanion(ctx: CanvasRenderingContext2D, x: number, y: number, frame: number) {
+function drawWoodstockCompanion(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  frame: number,
+) {
   ctx.save();
   const bobY = y + Math.sin(frame * 0.2) * 4;
   ctx.translate(x, bobY);
@@ -1148,7 +1204,7 @@ function drawWoodstockCompanion(ctx: CanvasRenderingContext2D, x: number, y: num
 function drawFlyingWoodstockHazard(
   ctx: CanvasRenderingContext2D,
   fw: FlyingWoodstockHazard,
-  frame: number
+  frame: number,
 ) {
   ctx.save();
   ctx.translate(fw.x, fw.y);
@@ -1315,7 +1371,7 @@ function drawPlayer(
   skin: Skin,
   propAngle: number,
   scarfPhase: number,
-  isCrashing: boolean
+  isCrashing: boolean,
 ) {
   ctx.save();
   ctx.translate(x, y);
@@ -1521,7 +1577,12 @@ function drawPlayer(
   ctx.restore();
 }
 
-function drawFlutteringScarf(ctx: CanvasRenderingContext2D, startX: number, startY: number, phase: number) {
+function drawFlutteringScarf(
+  ctx: CanvasRenderingContext2D,
+  startX: number,
+  startY: number,
+  phase: number,
+) {
   ctx.save();
   ctx.fillStyle = '#DC2626'; // Red scarf
   ctx.strokeStyle = '#1C1917';
@@ -1547,7 +1608,7 @@ function drawFlutteringScarf(ctx: CanvasRenderingContext2D, startX: number, star
 
 function drawParticles(ctx: CanvasRenderingContext2D, particles: Particle[]) {
   ctx.save();
-  particles.forEach(p => {
+  particles.forEach((p) => {
     ctx.save();
     if (p.text) {
       // Floating text particle (e.g. +2 BONE! or AAUGH!)

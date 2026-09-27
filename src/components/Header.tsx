@@ -52,7 +52,9 @@ export const Header: React.FC<HeaderProps> = ({
             type="button"
             onClick={() => onNavigate('DASHBOARD')}
             className={`transition-colors hover:text-stone-950 cursor-pointer ${
-              currentView === 'DASHBOARD' ? 'text-red-600 underline underline-offset-4 decoration-2' : ''
+              currentView === 'DASHBOARD'
+                ? 'text-red-600 underline underline-offset-4 decoration-2'
+                : ''
             }`}
           >
             Pilot Dashboard
@@ -72,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onToggleMusic}
-            title={isMusicPlaying ? "Pause jazz piano theme" : "Play jazz piano theme"}
+            title={isMusicPlaying ? 'Pause jazz piano theme' : 'Play jazz piano theme'}
             className={`p-2 rounded-xl text-stone-800 transition-all comic-border-sm cursor-pointer ${
               isMusicPlaying ? 'bg-amber-300' : 'bg-white hover:bg-stone-100'
             }`}
@@ -86,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onToggleSound}
-            title={isMuted ? "Unmute sound effects" : "Mute sound effects"}
+            title={isMuted ? 'Unmute sound effects' : 'Mute sound effects'}
             className="p-2 rounded-xl bg-white hover:bg-stone-100 text-stone-800 comic-border-sm transition-all cursor-pointer"
           >
             <span className="text-base">{isMuted ? '🔇' : '🔊'}</span>

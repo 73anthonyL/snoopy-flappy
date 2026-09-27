@@ -75,7 +75,7 @@ export default function App() {
       result.durationSeconds,
       difficulty,
       selectedSkin.id,
-      result.cause
+      result.cause,
     );
 
     setStats(updatedStats);
@@ -84,7 +84,7 @@ export default function App() {
       ...result,
       highScore: updatedStats.highScore,
       isNewRecord,
-      newlyUnlockedSkins
+      newlyUnlockedSkins,
     });
   };
 
@@ -139,7 +139,9 @@ export default function App() {
               <div className="mt-2.5 bg-white/95 comic-border-sm rounded-xl p-2 flex items-center justify-between gap-2 shadow-sm text-xs font-comic">
                 <div className="flex items-center gap-1.5 px-2">
                   <span className="text-amber-500 font-bold">🏆 Best:</span>
-                  <span className="font-mono font-black text-stone-900 text-sm">{stats.highScore}</span>
+                  <span className="font-mono font-black text-stone-900 text-sm">
+                    {stats.highScore}
+                  </span>
                 </div>
                 <div className="h-4 w-px bg-stone-300" />
                 <div className="flex items-center gap-1.5 px-2">
@@ -148,10 +150,16 @@ export default function App() {
                 </div>
                 <div className="h-4 w-px bg-stone-300" />
                 <div className="flex items-center gap-1.5 px-2">
-                  <span role="img" aria-label="biscuit">🦴</span>
+                  <span role="img" aria-label="biscuit">
+                    🦴
+                  </span>
                   <span className="font-mono font-bold text-amber-700">{stats.totalBiscuits}</span>
-                  <span className="ml-1" role="img" aria-label="woodstock">🐤</span>
-                  <span className="font-mono font-bold text-yellow-600">{stats.totalWoodstocks}</span>
+                  <span className="ml-1" role="img" aria-label="woodstock">
+                    🐤
+                  </span>
+                  <span className="font-mono font-bold text-yellow-600">
+                    {stats.totalWoodstocks}
+                  </span>
                 </div>
                 <button
                   type="button"
@@ -189,7 +197,11 @@ export default function App() {
               <div className="flex items-center gap-1.5 bg-stone-200/80 px-3 py-1.5 rounded-lg comic-border-sm font-comic">
                 <span className="text-stone-600">Weather:</span>
                 <strong className="text-stone-900">
-                  {difficulty === 'EASY' ? 'Pleasant Breeze' : difficulty === 'ACE' ? 'Red Baron Gale' : 'Classic Sortie'}
+                  {difficulty === 'EASY'
+                    ? 'Pleasant Breeze'
+                    : difficulty === 'ACE'
+                      ? 'Red Baron Gale'
+                      : 'Classic Sortie'}
                 </strong>
                 <button
                   type="button"
@@ -202,7 +214,9 @@ export default function App() {
 
               <div className="flex items-center gap-1.5 bg-amber-200/80 px-3 py-1.5 rounded-lg comic-border-sm font-comic">
                 <span className="text-amber-900">Best:</span>
-                <strong className="text-stone-950 font-mono tabular-nums text-sm">{stats.highScore} pts</strong>
+                <strong className="text-stone-950 font-mono tabular-nums text-sm">
+                  {stats.highScore} pts
+                </strong>
               </div>
             </div>
           </div>
@@ -247,16 +261,14 @@ export default function App() {
       )}
 
       {/* Flight Manual Modal */}
-      <HowToPlayModal
-        isOpen={isManualOpen}
-        onClose={() => setIsManualOpen(false)}
-      />
+      <HowToPlayModal isOpen={isManualOpen} onClose={() => setIsManualOpen(false)} />
 
       {/* Quiet Footer */}
       <footer className="border-t border-stone-200 bg-[#F4EFE2] py-4 px-6 text-center text-xs text-stone-600 font-comic">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div>
-            Inspired by Charles M. Schulz’s beloved <em>Peanuts</em> comic strip · Dedicated to Snoopy and the Sopwith Camel.
+            Inspired by Charles M. Schulz’s beloved <em>Peanuts</em> comic strip · Dedicated to
+            Snoopy and the Sopwith Camel.
           </div>
           <div className="font-mono text-stone-500">
             Press [SPACE] to fly · Root Beer on standby
