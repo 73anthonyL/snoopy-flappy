@@ -58,6 +58,10 @@ A singleton `sound` (`SoundEngine`) synthesizes every effect and the background 
 
 Tailwind v4 is loaded through the `@tailwindcss/vite` plugin with no `tailwind.config` file. The comic-book look comes from custom utilities in `src/index.css` (`comic-border`, `comic-border-sm`, `comic-border-lg`, `comic-border-hover`, `font-comic`, `comic-paper-bg`); reuse these rather than re-creating borders and shadows inline. Fonts are loaded from Google Fonts in `index.html`.
 
+## Deployment
+
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages (<https://73anthonyl.github.io/snoopy-flappy/>) on every push to `main`. Pages serves the site under `/snoopy-flappy/`, so the workflow sets `VITE_BASE_PATH`, which `vite.config.ts` reads as `base`. Locally and in AI Studio the variable is unset and the base stays `/`. Any asset referenced by an absolute URL string instead of an `import` will break on the deployed site.
+
 ## Things to know
 
 - **AI Studio compatibility.** The project may be opened in Google AI Studio again, so keep `metadata.json` (AI Studio's app config), `.env.example`, and the template's dependency list intact, even though `@google/genai`, `express`, `dotenv`, `motion`, and `lucide-react` are not imported by anything in `src/`. No `.env` file is needed to run the game.
